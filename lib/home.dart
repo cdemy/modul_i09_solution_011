@@ -33,7 +33,12 @@ class _HomeState extends State<Home> {
               });
             },
           ),
-          History(selectedDate, key: Key(selectedDate.toIso8601String())),
+          History(
+            selectedDate,
+            key: Key(
+              selectedDate.toIso8601String(),
+            ),
+          ),
         ],
       ),
     );
