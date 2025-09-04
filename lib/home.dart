@@ -21,25 +21,27 @@ class _HomeState extends State<Home> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text('Kalenderblatt vom ${DateFormatter.toFormattedDate(selectedDate)}'),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          InfoBox(selectedDate),
-          CalendarSheet(
-            selectedDate: selectedDate,
-            onSelectDate: (date) {
-              setState(() {
-                selectedDate = date;
-              });
-            },
-          ),
-          History(
-            selectedDate,
-            key: Key(
-              selectedDate.toIso8601String(),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            InfoBox(selectedDate),
+            CalendarSheet(
+              selectedDate: selectedDate,
+              onSelectDate: (date) {
+                setState(() {
+                  selectedDate = date;
+                });
+              },
             ),
-          ),
-        ],
+            History(
+              selectedDate,
+              key: Key(
+                selectedDate.toIso8601String(),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
